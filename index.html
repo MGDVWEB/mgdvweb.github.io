@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MgDv</title>
+    <title>MGDV</title>
+
     <style>
+        #password-screen {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        #content {
+            display: none;
+        }
+
         Body {
             background-color: black;
             color: white;
@@ -15,6 +25,17 @@
     </style>
 </head>
 <body>
+
+    <div id="password-screen">
+    <p>escribir contraseña</p>
+
+    <input type="password" id="password">
+    <button onclick="checkPassword()">Enter</button>
+
+    <p id="error"></p>
+</div>
+
+<div id="content">
     <h2 style="color:white">MGDV</h2>
     <p>-------------- GENERAL --------------</p>
     <p>
@@ -50,6 +71,22 @@
     <p class="notice">Para los que no quieren sacar legalmente un WAD de DOOM, esta aca el vanilla: <a href="/src/DOOM.WAD">DOOM.WAD</a><br>
     No es legal pero no es un gran problema.<br> 
     Este WAD <em>NO FUNCIONA</em> con DOOM 2, para ese lo van a tener que conseguir de otro lado.</p>
+</div>
+
+<script>
+    const correctPassword = "007074";
+
+    function checkPassword() {
+        const enteredPassword = document.getElementById("password").value;
+
+        if (enteredPassword === correctPassword) {
+            document.getElementById("password-screen").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        } else {
+            document.getElementById("error").textContent = "nop";
+        }
+    }
+</script>
 
 </body>
 </html>
